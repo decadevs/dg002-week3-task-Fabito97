@@ -8,12 +8,12 @@ namespace DG002_Week3_Task
 {
     public class SinglyLinkedList<T>
     {
-        private Node<T> head;
-        private int Count;
+        public Node<T> HeadNode { get; set; }
+        public int Count { get; set; }
 
         public SinglyLinkedList()
         {
-            head = null;
+            HeadNode = null;
             Count = 0;
         }
 
@@ -21,19 +21,19 @@ namespace DG002_Week3_Task
         {
             Node<T> newNode = new Node<T>(item);
 
-            if (head == null)
+            if (HeadNode == null)
             {
-                head = newNode;
+                HeadNode = newNode;
             }
             else
             {
-                Node<T> current = head;
+                Node<T> currentNode = HeadNode;
 
-                while (current.Next != null)
+                while (currentNode.Next != null)
                 {
-                    current = current.Next;                    
+                    currentNode = currentNode.Next;                    
                 }
-                current.Next = newNode;
+                currentNode.Next = newNode;
             }
             Count++;
             return Count;
@@ -41,23 +41,23 @@ namespace DG002_Week3_Task
 
         public bool Remove(T item)
         {
-            Node<T> current = head;
+            Node<T> currentNode = HeadNode;
             Node<T> previous = null;
 
-            while (current != null)
+            while (currentNode != null)
             {
-                if (current.Data.Equals(item))
+                if (currentNode.Data.Equals(item))
                 {
                     if (previous == null)
                     {
-                        previous.Next = current;
+                        previous.Next = currentNode;
                     }
                    
-                    previous.Next = current.Next;
+                    previous.Next = currentNode.Next;
                     return true;                                      
                 }
-                previous = current;
-                current = current.Next;
+                previous = currentNode;
+                currentNode = currentNode.Next;
             }
 
             return false;
@@ -65,35 +65,35 @@ namespace DG002_Week3_Task
 
         public bool Check(T item)
         {
-            Node<T> current = head;
+            Node<T> currentNode = HeadNode;
 
-            while (current != null)
+            while (currentNode != null)
             {
-                if (current.Data.Equals(item))
+                if (currentNode.Data.Equals(item))
                 {
                     return true;
                 }
-                current = current.Next;
+                currentNode = currentNode.Next;
             }
             return false;
         }
 
         public int Index(T item)
         {
-            Node<T> current = head;
-            int Index = 0;
+            Node<T> currentNode = HeadNode;
+            int IndexPosition = 0;
 
-            while (current != null)
+            while (currentNode != null)
             {
-                if (current.Data.Equals(item))
+                if (currentNode.Data.Equals(item))
                 {
-                    return Index;
+                    return IndexPosition;
                 }
                 else
                 {
-                    Index++;
+                    IndexPosition++;
                 }
-                current = current.Next;   
+                currentNode = currentNode.Next;   
             }
             return -1;
         }
@@ -102,11 +102,11 @@ namespace DG002_Week3_Task
 
         public void Print()
             {
-                Node<T> current = head;
-                while (current != null)
+                Node<T> currentNode = HeadNode;
+                while (currentNode != null)
                 {
-                    Console.Write($"{current.Data}->");
-                    current = current.Next;
+                    Console.Write($"{currentNode.Data}->");
+                    currentNode = currentNode.Next;
                 }
                 Console.WriteLine("null");
             }

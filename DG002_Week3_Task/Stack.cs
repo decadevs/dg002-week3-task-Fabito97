@@ -8,7 +8,7 @@ namespace DG002_Week3_Task
 {
     public class Stack<T>
     {
-        LinkedList<T> items;
+        public LinkedList<T> items;
 
         public Stack()
         {
@@ -17,7 +17,8 @@ namespace DG002_Week3_Task
 
         public bool IsEmpty()
         {
-            return items.Count == 0;
+            if (items.Count == 0) return true;
+            return false;
         }
 
         public void Push(T item)
@@ -25,16 +26,16 @@ namespace DG002_Week3_Task
             items.AddLast(item);
         }
 
-        public T Pop()
+        public int? Pop()
         {
-            if (items.Count == 0)
+            if (items.Count > 0)
             {
-                throw new InvalidOperationException("Stack is empty");
+                int value = Convert.ToInt32(items.Last.Value);
+                items.RemoveLast();
+                return value;
             }
-
-            T value = items.Last.Value;
-            items.RemoveLast();
-            return value;
+            int? err = null;
+            return err;            
         }
 
         public T Peek()

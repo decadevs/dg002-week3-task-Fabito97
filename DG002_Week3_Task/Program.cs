@@ -4,6 +4,7 @@
     {
         static void Main(string[] args)
         {
+            // Singlylindedlist 
             SinglyLinkedList<int> list = new SinglyLinkedList<int> ();
 
             Console.WriteLine("Single linked list Operations:");
@@ -28,7 +29,7 @@
             Console.WriteLine();
 
 
-
+            // Stack 
             Stack<int> stack = new Stack<int> ();
 
             Console.WriteLine("Stack Operations:");
@@ -43,18 +44,18 @@
 
             Console.WriteLine($"Is the stack still empty? {stack.IsEmpty()}");
             Console.WriteLine($"How many items are in the stack: {stack.Size()}");
-            Console.WriteLine($"At the last index, removed item: {stack.Pop()}");
+            Console.WriteLine($"What item was removed from the stack: {stack.Pop()}");
             Console.WriteLine($"What is the item at the last index: {stack.Peek()}");
             Console.WriteLine($"How many items are in the stack now: {stack.Size()}");            
             Console.WriteLine();
 
 
-
+            // Queue 
             Queue<int> queue = new Queue<int> ();
 
             Console.WriteLine("Queue Operations:");
 
-            Console.WriteLine($"Is stack empty? {queue.IsEmpty()}");
+            Console.WriteLine($"Is queue empty? {queue.IsEmpty()}");
 
             queue.Enqueue (10);
             queue.Enqueue (23);
@@ -65,7 +66,7 @@
 
             Console.WriteLine($"Is queue still Empty? {queue.IsEmpty()}");
             Console.WriteLine($"What is the size of queue: {queue.Size()}");
-            Console.WriteLine($"At first index, removed item: {queue.Dequeue()}");
+            Console.WriteLine($"What item was removed from the queue: {queue.Dequeue()}");
             Console.WriteLine($"What is the size after removing item: {queue.Size()}");
 
             

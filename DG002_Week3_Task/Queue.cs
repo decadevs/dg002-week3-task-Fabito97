@@ -8,7 +8,7 @@ namespace DG002_Week3_Task
 {
     public class Queue<T>
     {
-        private LinkedList<T> items;
+        public LinkedList<T> items;
 
         public Queue()
         {
@@ -17,7 +17,8 @@ namespace DG002_Week3_Task
 
         public bool IsEmpty()
         {
-            return items.Count == 0;
+            if (items.Count == 0) return true;
+            return false;
         }
 
         public void Enqueue(T item)
@@ -25,17 +26,18 @@ namespace DG002_Week3_Task
             items.AddLast(item);
         }
 
-        public T Dequeue()
+        public int? Dequeue()
         {
             
-            if (items.Count == 0)
+            if (items.Count > 0)
             {
-                throw new InvalidOperationException("Stack is empty");
+                int value = Convert.ToInt32(items.First.Value);
+                items.RemoveFirst();
+                return value;
             }
-
-            T value = items.First.Value;
-            items.RemoveFirst();
-            return value;
+            int? err = null;
+            return err;
+            
         }
 
         public int Size()
